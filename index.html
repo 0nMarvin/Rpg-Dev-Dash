@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>RPG Dev Dash - Online</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 1. CORREÇÃO CSP: Permite Supabase, Scripts e Conexões locais -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; connect-src 'self' https://*.supabase.co wss://*.supabase.co; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-src 'self' https://*;">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎲</text></svg>">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Scripts de configuração e SDK -->
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <button id="mobile-switch">📄 Ver Fichas/PDFs</button>
+    
+    <div id="chat-container">
+        <div id="header">
+            <span>⚔️ RPG Dev Dash</span>
+            <button id="btn-clear" title="Limpar histórico">🗑️ Limpar</button>
+        </div>
+        <div id="messages"></div>
+        <div class="controls">
+            <button id="btn-dice">🎲 /r</button>
+            <input type="text" id="userInput" placeholder="Ex: /r 1d20+5">
+            <button id="btn-send">Enviar</button>
+        </div>
+    </div>
+
+    <div id="right-panel">
+        <div id="tab-bar">
+            <div id="tab-list"></div>
+            <button id="btn-add-tab" title="Nova aba">＋</button>
+        </div>
+        <div id="sheet-container">
+            <iframe id="main-frame" src="about:blank" title="Painel lateral"></iframe>
+        </div>
+    </div>
+
+    <!-- Modal com LABELS CORRIGIDAS -->
+    <div id="modal-overlay" class="hidden">
+        <div id="modal">
+            <h3 id="modal-title">Nova Aba</h3>
+            <!-- O atributo 'for' deve ser igual ao 'id' do input -->
+            <label for="modal-name">Nome</label>
+            <input type="text" id="modal-name">
+            
+            <label for="modal-url">URL</label>
+            <input type="text" id="modal-url">
+            
+            <div id="modal-actions">
+                <button id="modal-cancel">Cancelar</button>
+                <button id="modal-delete" class="btn-danger hidden">Excluir</button>
+                <button id="modal-save" class="btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

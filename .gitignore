@@ -1,0 +1,35 @@
+# --- Segurança (O mais importante) ---
+# Ignora o arquivo que contém suas chaves reais do Supabase
+config.js
+
+# Ignora arquivos de ambiente caso você use no futuro
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# --- Dependências ---
+# Caso você venha a usar npm/Node.js no futuro
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Sistema Operacional ---
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# --- Editor/IDE (VS Code, JetBrains) ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Logs ---
+logs
+*.log
